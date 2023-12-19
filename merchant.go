@@ -42,3 +42,9 @@ var BusinessMap = map[int64]string{
 func (c *Client) GetBusinessMap() map[int64]string {
 	return BusinessMap
 }
+
+// AddMerchant 注册商户帐号
+func (c *Client) AddMerchant(req *schema.AddMerchantRequest) (result int64, err error) {
+	err = c.Request("/merchantApi/merchant/add", req, &result)
+	return result, err
+}
