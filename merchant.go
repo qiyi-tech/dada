@@ -54,3 +54,12 @@ func (c *Client) AddShop(req []*schema.AddShopItem) (result *schema.AddShopResp,
 	err = c.Request("/api/shop/add", req, &result)
 	return result, err
 }
+
+// UpdateShop 更新门店
+func (c *Client) UpdateShop(req *schema.UpdateShopRequest) (result bool, err error) {
+	err = c.Request("/api/shop/update", req, &result)
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}

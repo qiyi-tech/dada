@@ -52,3 +52,19 @@ func TestAddShop(t *testing.T) {
 	})
 	fmt.Println(resp, err)
 }
+
+func TestUpdateShop(t *testing.T) {
+	resp, err := client.UpdateShop(&schema.UpdateShopRequest{
+		OriginShopID: "9727fc8cd1cf4877aaa",
+		ContactName:  "张三111",
+		StationName:  "东方渔人码头肉夹馍-0111",
+		Phone:        "15000000000",
+	})
+	if err != nil {
+		t.Errorf("err:%v", err)
+		return
+	}
+	if !resp {
+		t.Errorf("resp:%v", resp)
+	}
+}
