@@ -39,6 +39,32 @@ type AddShopItem struct {
 	SettlementType int     `json:"settlement_type"` // 门店独立结算(0-非独立结算, 1-独立结算，默认为0)，如制定门店独立结算，需给门店独立账户进行充值后才可发单，非独立结算门店通过商户总账户进行扣款
 }
 
+type ShopItem struct {
+	Phone          string  `json:"phone"`          //联系人电话
+	Business       int     `json:"business"`       //支持配送的物品品类见
+	Lng            float64 `json:"lng"`            //门店经度
+	Lat            float64 `json:"lat"`            //门店纬度
+	StationName    string  `json:"stationName"`    //门店名称
+	OriginShopId   string  `json:"originShopId"`   //门店编码
+	ContactName    string  `json:"contactName"`    //联系人姓名
+	StationAddress string  `json:"stationAddress"` //门店地址
+	CityName       string  `json:"cityName"`       //城市名称
+	AreaName       string  `json:"areaName"`       //区域名称
+}
+
+type ShopFailedItem struct {
+	ShopNo   string `json:"shopNo"`   // 门店编码
+	Msg      string `json:"msg"`      // 错误信息
+	Code     int    `json:"code"`     // 错误码
+	ShopName string `json:"shopName"` // 门店名称
+}
+
+type AddShopResp struct {
+	Success     int              `json:"success"`     // 成功导入门店的数量
+	SuccessList []ShopItem       `json:"successList"` // 成功导入的门店
+	FailedList  []ShopFailedItem `json:"failedList"`  // 导入失败门店编号以及原因
+}
+
 type UpdateShopRequest struct {
 	OriginShopID   string  `json:"origin_shop_id"`            // 门店编码
 	NewShopID      string  `json:"new_shop_id"`               // 新的门店编码

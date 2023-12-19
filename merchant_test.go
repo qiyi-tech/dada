@@ -1,6 +1,10 @@
 package dada
 
-import "testing"
+import (
+	"fmt"
+	"ixingkong.com/qiyi-tech/dada/schema"
+	"testing"
+)
 
 var client *Client
 
@@ -31,4 +35,20 @@ func TestGetBusinessMap(t *testing.T) {
 	if m[1] != "食品小吃" {
 		t.Errorf("m:%v", m)
 	}
+}
+
+func TestAddShop(t *testing.T) {
+	resp, err := client.AddShop([]*schema.AddShopItem{
+		{
+			StationName:    "东方渔人码头肉夹馍",
+			StationAddress: "上海市东方渔人码头国际中心",
+			ContactName:    "李四",
+			Business:       1,
+			Lng:            121.475527,
+			Lat:            31.251967,
+			Phone:          "13817568632",
+			OriginShopID:   "001",
+		},
+	})
+	fmt.Println(resp, err)
 }

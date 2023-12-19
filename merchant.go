@@ -48,3 +48,9 @@ func (c *Client) AddMerchant(req *schema.AddMerchantRequest) (result int64, err 
 	err = c.Request("/merchantApi/merchant/add", req, &result)
 	return result, err
 }
+
+// AddShop 创建门店
+func (c *Client) AddShop(req []*schema.AddShopItem) (result *schema.AddShopResp, err error) {
+	err = c.Request("/api/shop/add", req, &result)
+	return result, err
+}
