@@ -25,3 +25,10 @@ func TestGetCityCodeList(t *testing.T) {
 		t.Errorf("resp is empty")
 	}
 }
+
+func TestGetBusinessMap(t *testing.T) {
+	m := client.GetBusinessMap()
+	if m[1] != "食品小吃" {
+		t.Errorf("m:%v", m)
+	}
+}
