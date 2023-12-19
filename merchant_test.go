@@ -55,7 +55,7 @@ func TestAddShop(t *testing.T) {
 
 func TestUpdateShop(t *testing.T) {
 	resp, err := client.UpdateShop(&schema.UpdateShopRequest{
-		OriginShopID: "9727fc8cd1cf4877aaa",
+		OriginShopID: "9727fc8cd1cf4877",
 		ContactName:  "张三111",
 		StationName:  "东方渔人码头肉夹馍-0111",
 		Phone:        "15000000000",
