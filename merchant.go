@@ -63,3 +63,9 @@ func (c *Client) UpdateShop(req *schema.UpdateShopRequest) (result bool, err err
 	}
 	return true, nil
 }
+
+// GetShop 查询门店详情
+func (c *Client) GetShop(originShopID string) (result *schema.Shop, err error) {
+	err = c.Request("/api/shop/detail", map[string]string{"origin_shop_id": originShopID}, &result)
+	return result, err
+}

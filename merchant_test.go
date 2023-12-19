@@ -68,3 +68,15 @@ func TestUpdateShop(t *testing.T) {
 		t.Errorf("resp:%v", resp)
 	}
 }
+
+func TestGetShopDetail(t *testing.T) {
+	resp, err := client.GetShop("9727fc8cd1cf4877")
+
+	if err != nil {
+		t.Errorf("err:%v", err)
+		return
+	}
+	if resp.OriginShopID != "9727fc8cd1cf4877" {
+		t.Errorf("resp:%v", resp)
+	}
+}
