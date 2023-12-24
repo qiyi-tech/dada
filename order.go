@@ -52,3 +52,12 @@ func (c *Client) AppointOrder(req *schema.AppointOrderRequest) (result *schema.A
 	err = c.Request("/api/order/appoint/exist", req, &result)
 	return result, err
 }
+
+// CancelAppointOrder 取消追加订单
+func (c *Client) CancelAppointOrder(req *schema.CancelAppointOrderRequest) (result bool, err error) {
+	err = c.Request("/api/order/appoint/cancel", req, &result)
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}

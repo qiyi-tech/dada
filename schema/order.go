@@ -138,3 +138,7 @@ type AppointOrderRequest struct {
 
 type AppointOrderResponse struct {
 }
+
+type CancelAppointOrderRequest struct {
+	OrderId string `json:"order_id"` //第三方订单号
+}
