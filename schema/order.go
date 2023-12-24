@@ -84,3 +84,38 @@ type AddTipRequest struct {
 	Tips    float64 `json:"tips"`     // 小费金额(精确到小数点后一位，单位：元)
 	Info    string  `json:"info"`     // 备注(字段最大长度：512)
 }
+
+type QueryOrderRequest struct {
+	OrderId string `json:"order_id"` // 第三方订单编号
+}
+
+type QueryOrderResponse struct {
+	OrderId          string  `json:"orderId"`          // 第三方订单编号
+	StatusCode       int     `json:"statusCode"`       // 订单状态(待接单＝1,待取货＝2,配送中＝3,已完成＝4,已取消＝5, 指派单=8,妥投异常之物品返回中=9, 妥投异常之物品返回完成=10, 骑士到店=100,创建达达运单失败=1000 可参考文末的状态说明）
+	StatusMsg        string  `json:"statusMsg"`        // 订单状态
+	TransporterName  string  `json:"transporterName"`  // 骑手姓名
+	TransporterPhone string  `json:"transporterPhone"` // 骑手电话
+	TransporterLng   string  `json:"transporterLng"`   // 骑手经度
+	TransporterLat   string  `json:"transporterLat"`   // 骑手纬度
+	DeliveryFee      float64 `json:"deliveryFee"`      // 订单总费用，包含运费、小费、保价费
+	Tips             float64 `json:"tips"`             // 小费,单位为元
+	CouponFee        float64 `json:"couponFee"`        // 优惠券费用,单位为元
+	InsuranceFee     float64 `json:"insuranceFee"`     // 保价费,单位为元
+	ActualFee        float64 `json:"actualFee"`        // 订单实际费用消耗，订单总费用减优惠券
+	Distance         float64 `json:"distance"`         // 配送距离,单位为米
+	CreateTime       string  `json:"createTime"`       // 发单时间
+	AcceptTime       string  `json:"acceptTime"`       // 接单时间,若未接单,则为空
+	FetchTime        string  `json:"fetchTime"`        // 取货时间,若未取货,则为空
+	FinishTime       string  `json:"finishTime"`       // 送达时间,若未送达,则为空
+	CancelTime       string  `json:"cancelTime"`       // 取消时间,若未取消,则为空
+	OrderFinishCode  string  `json:"orderFinishCode"`  // 收货码
+	DeductFee        float64 `json:"deductFee"`        // 违约金
+	DeliveryId       int64   `json:"deliveryId"`
+	ArriveTime       string  `json:"arriveTime"`
+	SupplierName     string  `json:"supplierName"`
+	SupplierLat      string  `json:"supplierLat"`
+	SupplierLng      string  `json:"supplierLng"`
+	SupplierAddress  string  `json:"supplierAddress"`
+	SupplierPhone    string  `json:"supplierPhone"`
+	TransporterId    int64   `json:"transporterId"`
+}

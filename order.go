@@ -34,3 +34,9 @@ func (c *Client) AddTip(req *schema.AddTipRequest) (result bool, err error) {
 	}
 	return true, nil
 }
+
+// QueryOrder 查询订单详情
+func (c *Client) QueryOrder(req *schema.QueryOrderRequest) (result *schema.QueryOrderResponse, err error) {
+	err = c.Request("/api/order/status/query", req, &result)
+	return result, err
+}
