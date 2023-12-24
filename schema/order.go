@@ -78,3 +78,9 @@ type AddAfterQueryRequest struct {
 
 type AddAfterQueryResponse struct {
 }
+
+type AddTipRequest struct {
+	OrderId string  `json:"order_id"` // 第三方订单编号
+	Tips    float64 `json:"tips"`     // 小费金额(精确到小数点后一位，单位：元)
+	Info    string  `json:"info"`     // 备注(字段最大长度：512)
+}

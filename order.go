@@ -25,3 +25,12 @@ func (c *Client) AddAfterQuery(req *schema.AddAfterQueryRequest) (result *schema
 	err = c.Request("/api/order/addAfterQuery", req, &result)
 	return result, err
 }
+
+// AddTip 针对已下单的订单，添加小费。
+func (c *Client) AddTip(req *schema.AddTipRequest) (result bool, err error) {
+	err = c.Request("/api/order/addTip", req, &result)
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}
