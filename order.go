@@ -40,3 +40,9 @@ func (c *Client) QueryOrder(req *schema.QueryOrderRequest) (result *schema.Query
 	err = c.Request("/api/order/status/query", req, &result)
 	return result, err
 }
+
+// CancelOrder 取消订单
+func (c *Client) CancelOrder(req *schema.CancelOrderRequest) (result *schema.CancelOrderResponse, err error) {
+	err = c.Request("/api/order/formalCancel", req, &result)
+	return result, err
+}

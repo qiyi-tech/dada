@@ -119,3 +119,13 @@ type QueryOrderResponse struct {
 	SupplierPhone    string  `json:"supplierPhone"`
 	TransporterId    int64   `json:"transporterId"`
 }
+
+type CancelOrderRequest struct {
+	OrderId        string `json:"order_id"`         // 第三方订单编号
+	CancelReasonId int    `json:"cancel_reason_id"` // 取消原因ID
+	CancelReason   string `json:"cancel_reason"`    // 取消原因(当取消原因ID为其他时，此字段必填)
+}
+
+type CancelOrderResponse struct {
+	DeductFee float64 `json:"deduct_fee"` // 扣除的违约金(单位：元)
+}
