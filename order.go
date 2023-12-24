@@ -76,3 +76,12 @@ func (c *Client) Complaint(req *schema.ComplaintRequest) (result bool, err error
 	}
 	return true, nil
 }
+
+// ConfirmGoods 商户确认物品已返还 https://newopen.imdada.cn/#/development/file/abnormalConfirm
+func (c *Client) ConfirmGoods(req *schema.ConfirmGoodsRequest) (result bool, err error) {
+	err = c.Request("/api/order/confirm/goods", req, &result)
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}

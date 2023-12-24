@@ -158,3 +158,7 @@ type ComplaintRequest struct {
 	OrderId  string `json:"order_id"`  // 第三方订单编号
 	ReasonId int    `json:"reason_id"` // 投诉原因ID
 }
+
+type ConfirmGoodsRequest struct {
+	OrderId string `json:"order_id"` // 第三方订单编号
+}
