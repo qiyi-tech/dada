@@ -102,10 +102,13 @@ func (c *Client) Request(path string, bodyParams interface{}, result interface{}
 	}
 
 	if respBody.Status != "success" {
+		if respBody.Msg != "" {
+			return fmt.Errorf("%d:%s", respBody.ErrorCode, respBody.Msg)
+		}
 		if v, ok := ErrorMap[respBody.Code]; ok {
 			return fmt.Errorf("%d:%s", respBody.Code, v)
 		}
-		return fmt.Errorf("%d:%s", respBody.Code, respBody.Msg)
+		return fmt.Errorf("%d:%s", respBody.ErrorCode, respBody.Msg)
 	}
 
 	return nil

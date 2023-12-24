@@ -13,3 +13,9 @@ func (c *Client) ReAddOrder(req *schema.ReAddOrderRequest) (result *schema.ReAdd
 	err = c.Request("/api/order/reAddOrder", req, &result)
 	return result, err
 }
+
+// QueryDeliverFee 查询运费
+func (c *Client) QueryDeliverFee(req *schema.QueryDeliverFeeRequest) (result *schema.QueryDeliverFeeResponse, err error) {
+	err = c.Request("/api/order/queryDeliverFee", req, &result)
+	return result, err
+}

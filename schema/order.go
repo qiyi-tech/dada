@@ -55,3 +55,17 @@ type ReAddOrderRequest struct {
 type ReAddOrderResponse struct {
 	AddOrderResponse
 }
+
+type QueryDeliverFeeRequest struct {
+	AddOrderRequest
+}
+
+type QueryDeliverFeeResponse struct {
+	Distance     float64 `json:"distance"`     // 距离（单位：米）
+	DeliveryNo   string  `json:"deliveryNo"`   // 平台订单号
+	Fee          float64 `json:"fee"`          // 实际运费（单位：元），运费减去优惠券费用
+	DeliverFee   float64 `json:"deliverFee"`   // 运费(单位：元)
+	CouponFee    float64 `json:"couponFee"`    // 优惠券费用(单位：元)
+	Tips         float64 `json:"tips"`         // 小费(单位：元)
+	InsuranceFee float64 `json:"insuranceFee"` // 保价费(单位：元)
+}
