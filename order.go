@@ -19,3 +19,9 @@ func (c *Client) QueryDeliverFee(req *schema.QueryDeliverFeeRequest) (result *sc
 	err = c.Request("/api/order/queryDeliverFee", req, &result)
 	return result, err
 }
+
+// AddAfterQuery 查询运费后下单 https://newopen.imdada.cn/#/development/file/addAfterQuery
+func (c *Client) AddAfterQuery(req *schema.AddAfterQueryRequest) (result *schema.AddAfterQueryResponse, err error) {
+	err = c.Request("/api/order/addAfterQuery", req, &result)
+	return result, err
+}

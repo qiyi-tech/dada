@@ -69,3 +69,12 @@ type QueryDeliverFeeResponse struct {
 	Tips         float64 `json:"tips"`         // 小费(单位：元)
 	InsuranceFee float64 `json:"insuranceFee"` // 保价费(单位：元)
 }
+
+type AddAfterQueryRequest struct {
+	DeliveryNo  string `json:"deliveryNo"`  // 平台订单编号
+	EnableReset bool   `json:"enableReset"` // 是否重置订单备注等字段。true：重置，false或缺失：不重置
+	Info        string `json:"info"`        // 订单备注内容
+}
+
+type AddAfterQueryResponse struct {
+}
