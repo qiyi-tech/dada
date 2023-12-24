@@ -67,3 +67,12 @@ func (c *Client) QueryAppointTransporter(req *schema.QueryAppointTransporterRequ
 	err = c.Request("/api/order/appoint/list/transporter", req, &result)
 	return result, err
 }
+
+// Complaint 商家投诉达达 https://newopen.imdada.cn/#/development/file/complaintDada
+func (c *Client) Complaint(req *schema.ComplaintRequest) (result bool, err error) {
+	err = c.Request("/api/complaint/dada", req, &result)
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}

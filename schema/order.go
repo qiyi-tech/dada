@@ -153,3 +153,8 @@ type Transporter struct {
 	Name   string `json:"name"`    // 配送员姓名
 	Phone  string `json:"phone"`   // 配送员电话
 }
+
+type ComplaintRequest struct {
+	OrderId  string `json:"order_id"`  // 第三方订单编号
+	ReasonId int    `json:"reason_id"` // 投诉原因ID
+}
