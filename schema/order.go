@@ -129,3 +129,12 @@ type CancelOrderRequest struct {
 type CancelOrderResponse struct {
 	DeductFee float64 `json:"deduct_fee"` // 扣除的违约金(单位：元)
 }
+
+type AppointOrderRequest struct {
+	OrderId       string `json:"order_id"`       // 追加的第三方订单ID
+	TransporterId int64  `json:"transporter_id"` // 追加的配送员ID
+	ShopNo        string `json:"shop_no"`        // 追加订单的门店编码
+}
+
+type AppointOrderResponse struct {
+}

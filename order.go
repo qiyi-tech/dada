@@ -46,3 +46,9 @@ func (c *Client) CancelOrder(req *schema.CancelOrderRequest) (result *schema.Can
 	err = c.Request("/api/order/formalCancel", req, &result)
 	return result, err
 }
+
+// AppointOrder 追加订单
+func (c *Client) AppointOrder(req *schema.AppointOrderRequest) (result *schema.AppointOrderResponse, err error) {
+	err = c.Request("/api/order/appoint/exist", req, &result)
+	return result, err
+}
