@@ -7,3 +7,9 @@ func (c *Client) AddOrder(req *schema.AddOrderRequest) (result *schema.AddOrderR
 	err = c.Request("/api/order/addOrder", req, &result)
 	return result, err
 }
+
+// ReAddOrder 针对已取消或者已过期的订单，重新下发到达达系统。
+func (c *Client) ReAddOrder(req *schema.ReAddOrderRequest) (result *schema.ReAddOrderResponse, err error) {
+	err = c.Request("/api/order/reAddOrder", req, &result)
+	return result, err
+}

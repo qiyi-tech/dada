@@ -47,3 +47,11 @@ type AddOrderResponse struct {
 	Tips         float64 `json:"tips"`         // 小费(单位：元)
 	InsuranceFee float64 `json:"insuranceFee"` // 保价费(单位：元)
 }
+
+type ReAddOrderRequest struct {
+	AddOrderRequest
+}
+
+type ReAddOrderResponse struct {
+	AddOrderResponse
+}
