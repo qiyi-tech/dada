@@ -140,5 +140,15 @@ type AppointOrderResponse struct {
 }
 
 type CancelAppointOrderRequest struct {
-	OrderId string `json:"order_id"` //第三方订单号
+	OrderId string `json:"order_id"` // 第三方订单号
+}
+
+type QueryAppointTransporterRequest struct {
+	ShopNo string `json:"shop_no"` // 门店编码
+}
+
+type Transporter struct {
+	CityID int    `json:"city_id"`
+	ID     int64  `json:"id"`
+	Name   string `json:"name"`
 }

@@ -61,3 +61,9 @@ func (c *Client) CancelAppointOrder(req *schema.CancelAppointOrderRequest) (resu
 	}
 	return true, nil
 }
+
+// QueryAppointTransporter 查询可追加骑士 https://newopen.imdada.cn/#/development/file/listTransportersToAppoint
+func (c *Client) QueryAppointTransporter(req *schema.QueryAppointTransporterRequest) (result []*schema.Transporter, err error) {
+	err = c.Request("/api/order/appoint/list/transporter", req, &result)
+	return result, err
+}
