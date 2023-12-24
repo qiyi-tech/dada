@@ -148,7 +148,8 @@ type QueryAppointTransporterRequest struct {
 }
 
 type Transporter struct {
-	CityID int    `json:"city_id"`
-	ID     int64  `json:"id"`
-	Name   string `json:"name"`
+	CityID int    `json:"city_id"` // 配送员城市
+	ID     int64  `json:"id"`      // 配送员id
+	Name   string `json:"name"`    // 配送员姓名
+	Phone  string `json:"phone"`   // 配送员电话
 }
